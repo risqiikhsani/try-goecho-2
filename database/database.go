@@ -19,6 +19,7 @@ func ConnectDB() *gorm.DB {
 	// db.AutoMigrate(&User{})
 	// use models
 	db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&models.Account{})
 
 	return db
 }

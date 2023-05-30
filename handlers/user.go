@@ -26,10 +26,10 @@ func (h *UserHandler) GetUsers(c echo.Context) error {
 }
 
 func (h *UserHandler) GetUser(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
-	}
+	id, _ := strconv.Atoi(c.Param("id"))
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
+	// }
 
 	var user models.User
 	if err := h.DB.First(&user, id).Error; err != nil {
@@ -54,10 +54,10 @@ func (h *UserHandler) CreateUser(c echo.Context) error {
 }
 
 func (h *UserHandler) UpdateUser(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
-	}
+	id, _ := strconv.Atoi(c.Param("id"))
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
+	// }
 
 	var user models.User
 	if err := h.DB.First(&user, id).Error; err != nil {
@@ -77,10 +77,10 @@ func (h *UserHandler) UpdateUser(c echo.Context) error {
 }
 
 func (h *UserHandler) DeleteUser(c echo.Context) error {
-	id, err := strconv.Atoi(c.Param("id"))
-	if err != nil {
-		return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
-	}
+	id, _ := strconv.Atoi(c.Param("id"))
+	// if err != nil {
+	// 	return echo.NewHTTPError(http.StatusBadRequest, "Invalid ID")
+	// }
 
 	var user models.User
 	if err := h.DB.First(&user, id).Error; err != nil {

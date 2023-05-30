@@ -24,6 +24,8 @@ func main() {
 	// initialize the echo server
 	e := echo.New()
 
+	e.Static("/static", "assets")
+
 	// middlewares
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
